@@ -1,5 +1,4 @@
 import Page from "./page";
-import Page from "./page";
 
 class InventoryPage extends Page {
   // get inputUsername () { return $('#user-name') }
@@ -35,6 +34,49 @@ class InventoryPage extends Page {
   get menuDrawer() {
     return $(".bm-menu-wrap");
   }
+
+  get linkAllItems() {
+    return $("#inventory_sidebar_link");
+  }
+
+  get linkAbout() {
+    return $("#about_sidebar_link");
+  }
+
+  get linkLogout() {
+    return $("#logout_sidebar_link");
+  }
+
+  get productImages(){
+    return $$('.inventory_item_img img');
+  }
+
+  get cartBadge(){
+    return $(".shopping_cart_badge");
+  }
+
+  get cartIcon(){
+    return $("#shopping_cart_container");
+  }
+
+  get qtyLabel(){
+    return $(".cart_quantity_label");
+  }
+
+  get descLabel(){
+    return $(".cart_desc_label");
+  }
+
+  async btnAddToCart(label) {
+    const name = 'add-to-cart-' + label.split(' ').map(el => el.toLowerCase()).join('-');
+    return await $(`[name = "${name}"]`);
+  }
+
+  async btnRemove(label) {
+    const name = 'remove-' + label.split(' ').map(el => el.toLowerCase()).join('-');
+    return await $(`[name = "${name}"]`);
+  }
+  //remove-sauce-labs-onesie
 
   //this method takes array of elements as a parameter and returns the array of texts that these
   //elements contain
